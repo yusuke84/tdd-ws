@@ -9,11 +9,11 @@ class ClosedRange {
         }
     }
 
-    getLowerEndPoint() {
+    getLowerEndpoint() {
         return this.lowerEndpoint;
     }
 
-    getUpperEndPoint() {
+    getUpperEndpoint() {
         return this.upperEndpoint;
     }    
 
@@ -22,8 +22,14 @@ class ClosedRange {
     }
 
     toString() {
-        let array = [this.lowerEndpoint,this.upperEndpoint];
+        const array = [this.lowerEndpoint,this.upperEndpoint];
         return JSON.stringify(array);
+    }
+
+    isEqual(cr) {
+        const isLowerEqual = this.lowerEndpoint === cr.getLowerEndpoint();
+        const isUpperEqual = this.upperEndpoint === cr.getUpperEndpoint();
+        return isLowerEqual && isUpperEqual;
     }
 }
 module.exports = ClosedRange;

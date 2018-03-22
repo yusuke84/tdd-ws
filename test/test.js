@@ -11,11 +11,11 @@ describe('整数の閉区間を示すオブジェクト', () => {
     describe('インスタンス変数として整数閉区間の下端点と上端点を持ち、getterで取得できる', () => {
         it('3~8の閉区間を作り、下端点として3が返る', () => {
             const cr = new ClosedRange(3, 8);
-            assert(cr.getLowerEndPoint() === 3);
+            assert(cr.getLowerEndpoint() === 3);
         });
         it('3~8の閉区間を作り、上端点として8が返る', () => {
             const cr = new ClosedRange(3, 8);
-            assert(cr.getUpperEndPoint() === 8);
+            assert(cr.getUpperEndpoint() === 8);
         });
     });
     describe('上端点より下端点が大きい閉区間を作ろうとするとエラーを返す', () => {
@@ -51,8 +51,24 @@ describe('整数の閉区間を示すオブジェクト', () => {
     });
     describe('別の閉区間と等価かどうか判定するメソッドを持つ', () => {
         it('3〜8の閉区間と3〜8の閉区間が等価である', () => {
-            const cr = new ClosedRange(3,8);
-            const crComapared = new ClosedRange(3,8);
+            const cr = new ClosedRange(3, 8);
+            const crCompared = new ClosedRange(3, 8);
+            assert(cr.isEqual(crCompared) === true);
+        });
+        it('3〜8の閉区間と3〜7の閉区間が等価でない', () => {
+            const cr = new ClosedRange(3, 8);
+            const crCompared = new ClosedRange(3, 7);
+            assert(cr.isEqual(crCompared) === false);
+        });
+        it('3〜8の閉区間と2〜8の閉区間が等価でない', () => {
+            const cr = new ClosedRange(3, 8);
+            const crCompared = new ClosedRange(2, 8);
+            assert(cr.isEqual(crCompared) === false);
+        });
+        it('3〜8の閉区間と10〜12の閉区間が等価でない', () => {
+            const cr = new ClosedRange(3, 8);
+            const crCompared = new ClosedRange(10, 12);
+            assert(cr.isEqual(crCompared) === false);
         });
     });
 });
