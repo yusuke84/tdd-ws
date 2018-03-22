@@ -31,5 +31,12 @@ class ClosedRange {
         const isUpperEqual = this.upperEndpoint === cr.getUpperEndpoint();
         return isLowerEqual && isUpperEqual;
     }
+
+    includesClosedRange(cr) {
+        const isLowerIncluded = this.lowerEndpoint <= cr.getLowerEndpoint();
+        const isUpperIncluded = cr.getUpperEndpoint() <= this.upperEndpoint;
+        return isLowerIncluded && isUpperIncluded;
+    }
+
 }
 module.exports = ClosedRange;

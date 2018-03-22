@@ -71,4 +71,26 @@ describe('整数の閉区間を示すオブジェクト', () => {
             assert(cr.isEqual(crCompared) === false);
         });
     });
+    describe('別の閉区間に完全に含まれるかどうか判定するメソッドを持つ', () => {
+        it('3〜8の閉区間に4〜7の閉区間は完全に含まれる', () => {
+            const cr = new ClosedRange(3, 8);
+            const crCompared = new ClosedRange(4, 7);
+            assert(cr.includesClosedRange(crCompared) === true);
+        });
+        it('3〜8の閉区間に2〜7の閉区間は完全に含まれない', () => {
+            const cr = new ClosedRange(3, 8);
+            const crCompared = new ClosedRange(2, 7);
+            assert(cr.includesClosedRange(crCompared) === false);
+        });
+        it('3〜8の閉区間に3〜9の閉区間は完全に含まれない', () => {
+            const cr = new ClosedRange(3, 8);
+            const crCompared = new ClosedRange(3, 9);
+            assert(cr.includesClosedRange(crCompared) === false);
+        });
+        it('3〜8の閉区間に2〜9の閉区間は完全に含まれない', () => {
+            const cr = new ClosedRange(3, 8);
+            const crCompared = new ClosedRange(2, 9);
+            assert(cr.includesClosedRange(crCompared) === false);
+        });
+    });
 });
