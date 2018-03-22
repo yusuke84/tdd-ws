@@ -20,5 +20,10 @@ class ClosedRange {
     includes(value) {
         return this.lowerEndpoint <= value && value <= this.upperEndpoint;
     }
+
+    toString() {
+        let array = [this.lowerEndpoint,this.upperEndpoint];
+        return JSON.stringify(array);
+    }
 }
 module.exports = ClosedRange;

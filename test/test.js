@@ -43,4 +43,16 @@ describe('整数の閉区間を示すオブジェクト', () => {
             assert(cr.includes(10) === false);
         });
     });
+    describe('文字列として下端点と上端点を出力できるメソッドを持つ(例:"[3,8]"）', () => {
+        it('3〜8の閉区間の場合、[3,8]が出力される', () => {
+            const cr = new ClosedRange(3, 8);
+            assert(cr.toString() === '[3,8]');
+        });
+    });
+    describe('別の閉区間と等価かどうか判定するメソッドを持つ', () => {
+        it('3〜8の閉区間と3〜8の閉区間が等価である', () => {
+            const cr = new ClosedRange(3,8);
+            const crComapared = new ClosedRange(3,8);
+        });
+    });
 });
