@@ -18,10 +18,29 @@ describe('整数の閉区間を示すオブジェクト', () => {
             assert(cr.getUpperEndPoint() === 8);
         });
     });
-    describe('上端点より下端点が大きい閉区間を作ろうとするとエラーを返す', () =>{
+    describe('上端点より下端点が大きい閉区間を作ろうとするとエラーを返す', () => {
         it('上端点に3、下端点に8の閉区間を作ろうとするとエラーが返る', () => {
-            const cr = new ClosedRange(8, 3);
-            assert(cr);
+            assert.throws(() => {
+                const cr = new ClosedRange(8, 3);
+            });
+        });
+    });
+    describe('整数の閉区間は指定した整数を含むかどうかを判定するメソッドを持つ', () => {
+        it('3~8の閉区間に、5が含まれる', () => {
+            const cr = new ClosedRange(3, 8);
+            assert(cr.includes(5) === true);
+        });
+        it('3~8の閉区間に、3が含まれる', () => {
+            const cr = new ClosedRange(3, 8);
+            assert(cr.includes(3) === true);
+        });
+        it('3~8の閉区間に、8が含まれる', () => {
+            const cr = new ClosedRange(3, 8);
+            assert(cr.includes(8) === true);
+        });
+        it('3~8の閉区間に、10が含まれない', () => {
+            const cr = new ClosedRange(3, 8);
+            assert(cr.includes(10) === false);
         });
     });
 });
