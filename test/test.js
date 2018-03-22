@@ -9,10 +9,19 @@ describe('整数の閉区間を示すオブジェクト', () => {
         });
     });
     describe('インスタンス変数として整数閉区間の下端点と上端点を持ち、getterで取得できる', () => {
-        it('3~8の閉区間を作り、下端点と上端点としてそれぞれ3,8が返る', () => {
+        it('3~8の閉区間を作り、下端点として3が返る', () => {
             const cr = new ClosedRange(3, 8);
-            assert(cr.lowerEndPoint() === 3);
-            assert(cr.upperEndPoint() === 8);
+            assert(cr.getLowerEndPoint() === 3);
+        });
+        it('3~8の閉区間を作り、上端点として8が返る', () => {
+            const cr = new ClosedRange(3, 8);
+            assert(cr.getUpperEndPoint() === 8);
+        });
+    });
+    describe('上端点より下端点が大きい閉区間を作ろうとするとエラーを返す', () =>{
+        it('上端点に3、下端点に8の閉区間を作ろうとするとエラーが返る', () => {
+            const cr = new ClosedRange(8, 3);
+            assert(cr);
         });
     });
 });

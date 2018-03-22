@@ -1,7 +1,17 @@
 class ClosedRange {
+
     constructor(lower, upper) {
-        this.lower = lower;
-        this.upper = upper;
+        this.lowerEndpoint = lower;
+        this.upperEndpoint = upper;
     }
+
+    getLowerEndPoint() {
+        return this.lowerEndpoint;
+    }
+
+    getUpperEndPoint() {
+        return this.upperEndpoint;
+    }    
+    
 }
 module.exports = ClosedRange;
