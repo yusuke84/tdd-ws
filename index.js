@@ -1,8 +1,7 @@
 class ClosedRange {
-    constructor() {
+    constructor(lower, upper) {
+        this.lower = lower;
+        this.upper = upper;
     }
 }
-
-const cr = new ClosedRange();
-
 module.exports = ClosedRange;
